@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Colorful Fruit List</title>
+  <style>
+    body {
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .colorful {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 4px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <ul id="fruitList"></ul>
+
+  <script>
+    var fruits = ["Apple", "Banana", "Orange", "Strawberry", "Grapes", "Watermelon", "Pineapple", "Mango"];
+
+    var fruitList = document.getElementById("fruitList");
+
+    for (var i = 0; i < fruits.length; i++) {
+      var fruit = fruits[i];
+      var listItem = document.createElement("li");
+      listItem.textContent = fruit;
+      listItem.classList.add("colorful");
+      listItem.style.backgroundColor = getRandomColor();
+      fruitList.appendChild(listItem);
+    }
+
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+</body>
+</html>
